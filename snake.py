@@ -16,6 +16,7 @@ class Snake:
         for num in range(0, 3):
             snake = Turtle("square")
             snake.penup()
+            snake.shapesize(stretch_len=0.5, stretch_wid=0.5)
             snake.goto(x=position[num], y=0)
             self.snake_list.append(snake)
 
