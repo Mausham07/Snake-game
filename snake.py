@@ -20,7 +20,7 @@ class Snake:
     def add_snake(self, num):
         snake = Turtle("square")
         snake.penup()
-        snake.speed("fast")
+        snake.speed("fastests")
         snake.shapesize(stretch_len=0.5, stretch_wid=0.5)
         snake.goto(num)
         self.snake_list.append(snake)
