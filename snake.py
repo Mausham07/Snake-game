@@ -1,5 +1,5 @@
 from turtle import Turtle, Screen
-position = [0, -10, -20]
+position = [(0, 0), (-10, 0), (-20, 0)]
 UP = 90
 LEFT = 180
 DOWN = 270
@@ -13,12 +13,20 @@ class Snake:
         self.head = self.snake_list[0]
 
     def create_snake(self):
-        for num in range(0, 3):
-            snake = Turtle("square")
-            snake.penup()
-            snake.shapesize(stretch_len=0.5, stretch_wid=0.5)
-            snake.goto(x=position[num], y=0)
-            self.snake_list.append(snake)
+        for num in position:
+            self.add_snake(num)
+
+
+    def add_snake(self, num):
+        snake = Turtle("square")
+        snake.penup()
+        snake.speed("fast")
+        snake.shapesize(stretch_len=0.5, stretch_wid=0.5)
+        snake.goto(num)
+        self.snake_list.append(snake)
+
+    def extend(self):
+        self.add_snake(self.snake_list[-1].position())
 
     def move(self):
         for sn in range(len(self.snake_list)-1, 0, -1):
