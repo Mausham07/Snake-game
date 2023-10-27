@@ -20,7 +20,7 @@ class Snake:
     def add_snake(self, num):
         snake = Turtle("square")
         snake.penup()
-        snake.speed("fastests")
+        snake.speed("fastest")
         snake.shapesize(stretch_len=0.5, stretch_wid=0.5)
         snake.goto(num)
         self.snake_list.append(snake)
@@ -34,6 +34,13 @@ class Snake:
             y_cordinate = self.snake_list[sn-1].ycor()
             self.snake_list[sn].goto(x_cordinate, y_cordinate)
         self.snake_list[0].forward(10)
+
+    def snake_reset(self):
+        for s in self.snake_list:
+            s.goto(1000,1000)
+        self.snake_list.clear()
+        self.create_snake()
+        self.head = self.snake_list[0]
 
     def up(self):
         if self.head.heading() != DOWN:
